@@ -52,18 +52,18 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
 
         self.path = []
-        self.recurse(nums, 0, [])
+        self.backtrack(nums, 0, [])
         return self.path
 
-    def recurse(self, nums, index, path):
+    def backtrack(self, nums, index, path):
 
         if index == len(nums):
             self.path.append(list(path))
             return
 
-        self.recurse(nums, index+1, path)
+        self.backtrack(nums, index+1, path)
         path.append(nums[index])
-        self.recurse(nums, index+1, path)
+        self.backtrack(nums, index+1, path)
         path.pop()
 
 
